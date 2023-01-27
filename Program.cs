@@ -1,33 +1,26 @@
-﻿int number = ReadInt("Введите число: ");
-int len = NumberLen(number);
-SumNumbers(number, len);
-
-int ReadInt(string message)
-{
-    Console.Write(message);
-    return Convert.ToInt32(Console.ReadLine());
+﻿using System; 
+ 
+namespace func 
+{ 
+  static class func 
+  { 
+    static void Main() 
+    { 
+      Console.WriteLine("Размер массива: "); 
+      int n; 
+      n = Convert.ToInt32(Console.ReadLine()); 
+      int[] ar = new int[n]; 
+      var rand = new Random(); 
+       
+      for(int i = 0; i < ar.Length; i++) 
+        ar[i] = rand.Next(-50, 50); 
+      Console.Write("Значения элементов массива: "); 
+      foreach(var item in ar) 
+        Console.Write("{0} ", item); 
+      Console.WriteLine(); 
+      for(int i = 0; i < ar.Length / 2; i++) 
+        Console.WriteLine("элемент {0} * элемент {1}, {2} * {3}  = {4}", i, ar.Length - i - 1, ar[i], ar[ar.Length - i - 1], ar[i] * ar[ar.Length - i - 1]); 
+      return; 
+    } 
+  } 
 }
-
-int NumberLen(int a)
-{
-    int index = 0;
-    while (a > 0)
-    {
-        a /= 10;
-        index++;
-    }
-    return index;
-}
-
-void SumNumbers(int n, int len)
-{
-    int sum = 0;
-    for (int i = 1; i <= len; i++)
-    {
-        sum += n % 10;
-        n /= 10;
-    }
-    Console.WriteLine(sum);
-}
-
-
